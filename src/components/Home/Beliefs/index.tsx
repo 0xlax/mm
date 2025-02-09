@@ -80,23 +80,28 @@ const Beliefs = () => {
           {cardData.map((card, index) => (
             <div key={index} className="px-2 sm:px-4">
               <div
-                className={`relative w-full h-80 sm:h-[400px] md:h-[450px] lg:h-[500px] rounded-2xl bg-cover bg-center transition-opacity duration-500 flex flex-col justify-between p-4 sm:p-6 md:p-8`}
+                className={`relative w-full h-80 sm:h-[400px] md:h-[450px] lg:h-[500px] rounded-2xl bg-cover bg-center transition-all duration-500 group hover:shadow-2xl transform hover:-translate-y-1`}
                 style={{ backgroundImage: `url(${card.image})` }}
               >
-                <div className="bg-black bg-opacity-50 p-3 sm:p-4 md:p-5 rounded-lg">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 text-center sm:text-start">
-                    {card.title}
-                  </h3>
-                  <p className="text-white/75 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 text-center sm:text-start">
-                    {card.description}
-                  </p>
-                </div>
-                <div className="text-center sm:text-start">
-                  <button
-                    className="text-sm sm:text-base md:text-lg py-2 sm:py-3 px-6 sm:px-8 font-semibold rounded-full bg-primary border border-primary text-white hover:bg-darkmode hover:border-darkmode transition"
-                  >
-                    {card.buttonText}
-                  </button>
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300 rounded-2xl" />
+                
+                <div className="absolute inset-0 flex flex-col justify-between p-4 sm:p-6 md:p-8">
+                  <div className="bg-black/60 backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-white/10 transform transition-all duration-300 group-hover:translate-y-2">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 text-center sm:text-start">
+                      {card.title}
+                    </h3>
+                    <p className="text-white/90 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 text-center sm:text-start leading-relaxed">
+                      {card.description}
+                    </p>
+                  </div>
+                  <div className="text-center sm:text-start transform transition-all duration-300 group-hover:translate-y-2">
+                    <button
+                      onClick={() => alert(`${card.buttonText} clicked`)}
+                      className="text-sm sm:text-base md:text-lg py-2 sm:py-3 px-6 sm:px-8 font-semibold rounded-full bg-primary/90 backdrop-blur-sm border border-primary text-white hover:bg-primary hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:scale-105"
+                    >
+                      {card.buttonText}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

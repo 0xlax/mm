@@ -7,8 +7,8 @@ const Logo: React.FC = () => {
       <Image
         src="/images/logo/logo.jpg"  // Path to your logo image
         alt="MuggedMoments Logo"
-        width={150}  // Adjust the width as needed
-        height={50}  // Adjust the height as needed
+        width={120}  // Reduced from 150
+        height={40}  // Reduced from 50
         className="transition-all duration-300"
       />
     </Link>
